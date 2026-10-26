@@ -292,6 +292,7 @@ with tabs[4]:
     basket = rc3.number_input("Avg basket (TL)", 50, 20000, 650, 10)
     lift = rc4.slider("Expected CV lift", 0.0, 0.60, 0.18, 0.01)
     roi = S.roi_model(traffic, conv, basket, lift)
+    m1, m2, m3, m4 = st.columns(4)
     m1.metric("Base revenue", f"{roi['base_revenue']:,.0f} TL")
     m2.metric("Projected revenue", f"{roi['projected_revenue']:,.0f} TL")
     m3.metric("Monthly uplift", f"{roi['uplift']:,.0f} TL", delta=f"{lift*100:.0f}%")
